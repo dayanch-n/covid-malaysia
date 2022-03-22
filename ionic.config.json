@@ -1,0 +1,7 @@
+{
+  "name": "aplc-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
