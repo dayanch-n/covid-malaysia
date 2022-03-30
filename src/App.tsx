@@ -1,7 +1,10 @@
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import { statsChart, pizza, home } from 'ionicons/icons';
 import Home from './pages/Home';
+import State from './pages/State';
+import Statistics from './pages/Statistics';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -25,18 +28,38 @@ import './theme/variables.css';
 setupIonicReact();
 
 const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
+    <IonApp>
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route exact path="/home">
+            <Home />
+          </Route>
+          <Route exact path="/state">
+            <State />
+          </Route>
+          <Route path="/statistics">
+            <Statistics />
+          </Route>
+          <Route exact path="/">
+            <Redirect to="/home" />
+          </Route>
+        </IonRouterOutlet>
+        <IonTabBar slot="bottom">
+          <IonTabButton tab="home" href="/home">
+            <IonIcon icon={home} />
+            <IonLabel>Malaysia</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="state" href="/state">
+            <IonIcon icon={pizza} />
+            <IonLabel>State</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="statistics" href="/statistics">
+            <IonIcon icon={statsChart} />
+            <IonLabel>Statistics</IonLabel>
+          </IonTabButton>
+        </IonTabBar>
+      </IonReactRouter>
+    </IonApp>
 );
 
 export default App;

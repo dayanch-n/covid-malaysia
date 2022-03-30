@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "KnowledgebaseGenerator.ts", "src/helpers/storage.ts"  ]
 }
